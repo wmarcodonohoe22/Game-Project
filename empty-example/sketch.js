@@ -2,10 +2,14 @@
 function setup() {
   createCanvas(600, 600);
 }
+class ball { constructor(x,y,color){
+		this.x = x;
+    		this.y = y;
+           this.color = color;
+	  }
+}
 
 function draw(){
-	background("purple");
-  ellipse(500, 500, 60, 60)
-  ellipse(400, 400, 60, 60)
+
 
 }
