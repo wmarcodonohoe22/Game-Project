@@ -5,9 +5,9 @@ let c;
 
 function setup() {
   createCanvas(800, 400);
-  b = new Ball(0, 100,"red"); //make a new ball from the Ball class and call it b.
-  a = new Ball(200,20,"green");
-  c = new ball(30, 30,"blue")
+  b = new Ball(50, 80,"yellow"); //make a new ball from the Ball class and call it b.
+  a = new Ball(200,20,"pink");
+  c = new Ball(30, 30,"blue")
 }
 
 
@@ -17,8 +17,8 @@ function draw(){
     b.moveBall(); //move the ball called b (go look in the Ball class for the moveBall function)
     a.drawBall();
     a.moveBall();
-    c.drawball();
-    c.moveball();
+    c.drawBall();
+    c.moveBall();
 }
 
 
@@ -37,7 +37,7 @@ class Ball {
 		    ellipse(this.x,this.y,50,50);
 	}
 	moveBall(){ //update the location of the ball, so it moves across the screen
-		this.x = this.x+2;
-		this.y = this.y+.5;
+		this.x = this.x+1;
+		this.y = this.y+1;
 	}
 }
