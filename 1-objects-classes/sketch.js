@@ -6,7 +6,6 @@ let c;
 function setup() {
   createCanvas(800, 400);
   b = new Ball(0, 100,"red"); //make a new ball from the Ball class and call it b.
-  anotherBall = new Ball(200,20,"green");
   a = new Ball(200,20,"green");
   c = new ball(30, 30,"blue")
 }
@@ -18,6 +17,7 @@ function draw(){
     b.moveBall(); //move the ball called b (go look in the Ball class for the moveBall function)
     a.drawBall();
     a.moveBall();
+    c.drawball();
     c.moveball();
 }
 
