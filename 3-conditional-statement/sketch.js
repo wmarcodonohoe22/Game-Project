@@ -6,7 +6,7 @@ let me;
 
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(700, 700);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -19,7 +19,7 @@ function draw(){
   me.drawMe();
   me.moveMe();
 
-  if (frameCount % 25 == 0) {
+  if (frameCount % 100 == 0) {
       let  b = new Ball(width, random(0,height), -3);
       balls.push(b);
       console.log(balls); //print the balls array to the console
@@ -44,9 +44,9 @@ class Avatar {
 	}
 
 	drawMe(){  // draw the running person
-    		stroke("green");
+    		stroke("grey");
         strokeWeight(3);
-    		fill("blue");
+    		fill("grey");
 		    ellipse(this.x,this.y,20,20);
         line(this.x,this.y, this.x, this.y+40);
         line(this.x, this.y+40, this.x-20, this.y+60);
@@ -54,7 +54,13 @@ class Avatar {
         line(this.x+10, this.y+50, this.x+5, this.y+60);
         line(this.x, this.y+15, this.x-10, this.y+25);
         line(this.x-10, this.y+25, this.x+10, this.y+35);
+        stroke(65, 64, 69);
+        line(this.x+10, this.y+35, this.x+40, this.y+0)
+        line(this.x+10, this.y+35, this.x+45, this.y+5)
+        line(this.x+40, this.y+0, this.x+47.5, this.y+2.5)
 	}
+
+
 
 	moveMe(){
     if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
@@ -64,6 +70,15 @@ class Avatar {
     if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
         this.y += this.speed;
     }
+
+    if (keyIsDown(RIGHT_ARROW)) { // if you hold the down arrow, move down by speed
+        this.x += this.speed;
+    }
+
+    if (keyIsDown(LEFT_ARROW)) { // if you hold the down arrow, move down by speed
+        this.x -= this.speed;
+    }
+
 	}
 
   die(){
@@ -87,21 +102,32 @@ class Ball {
 	drawBall(){
     	stroke(0);
       strokeWeight(1);
-    	fill("red");
-		  ellipse(this.x,this.y,10,10);
+    	fill("black");
+		  ellipse(this.x,this.y,20,10);
 	}
 
 	//update the location of the ball, so it moves across the screen
 	moveBall(){
 		this.x = this.x+ this.speed;
-		this.y = this.y+.5;
+		this.y = this.y+.1;
 	}
 
 	//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
   	bounceBall(){
-    		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
+    		if (this.x >= me.x+10 && this.x <= me.x+47.5 && this.y > me.y-0 && this.y < me.y+45){
       			this.speed = -this.speed;
     		}
   	}
+
+    bouncewall(){
+        if (this.x > wall){
+            this.speed = -this.speed*5;
+        }
+
+    // bounceBall(){
+    //     if (this.x > width ){
+    //       this.speed = -this.speed;
+    //       {
+}
 
 }
